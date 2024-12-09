@@ -1,5 +1,5 @@
 const grid = document.getElementById("grid-container");
-let size = 50;
+let size = 20;
 
 
 function createGrid(size) {
@@ -14,6 +14,11 @@ function createGrid(size) {
 
         square.style.width = `${squareSize}px`;
         square.style.height = `${squareSize}px`;
+
+        square.addEventListener("mouseover", function() {
+            const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+            this.style.backgroundColor = randomColor;
+        });
         
         grid.appendChild(square);
     }
