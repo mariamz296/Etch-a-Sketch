@@ -25,3 +25,28 @@ function createGrid(size) {
 }
 
 createGrid(size);
+
+const resizeButton = document.getElementById("resize-button");
+
+resizeButton.addEventListener("click", ()=>{
+    let newSize = prompt("Enter grid dimensions between 10-100");
+
+    if (newSize === null)
+        return;
+
+    while(isNaN(newSize) || newSize < 10 || newSize > 100) {
+        if (newSize < 10) {
+            newSize = prompt("Number is too low. Please enter a number between 10-100");
+        } else if (newSize > 100) {
+            newSize = prompt("Number is too high. Please enter a number between 10-100")
+        } else {
+            newSize = prompt("Invalid input. Please enter a number between 10-100")
+        }
+
+        if (newSize === null) {
+            return;
+        }
+    }
+    
+    createGrid(newSize);
+});
